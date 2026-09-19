@@ -8,6 +8,7 @@ namespace coursework_progect1
         int counter = 1; // счётчик
         int point = 0;
         int select = 0;
+        int Question_counter = 1;
 
         public static string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=TestDB.mdb;"; // нахождение файла
         private OleDbConnection myConnection;
@@ -15,46 +16,57 @@ namespace coursework_progect1
         {
             InitializeComponent();
 
+            if (Globali.i == 1) { counter = 1; }
+            else if (Globali.i == 2) { counter = 21; } //СВЕРИТЬ С БАЗОЙ ПЕРЕД ЗАПУСКОМ!!!
+            else if (Globali.i == 3) { counter = 3; }
 
             myConnection = new OleDbConnection(connectString);
             myConnection.Open(); // открытие базы данных
 
-            OleDbCommand command = new OleDbCommand("SELECT QuestionText FROM Questions WHERE QuestionID = 1", myConnection);
+            OleDbCommand command = new OleDbCommand("SELECT QuestionText FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             label1.Text = command.ExecuteScalar().ToString(); // вывод первого вопроса 
 
-            OleDbCommand answerA = new OleDbCommand("SELECT AnswerA FROM Questions WHERE QuestionID = 1", myConnection);
+            OleDbCommand answerA = new OleDbCommand("SELECT AnswerA FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton1.Text = answerA.ExecuteScalar().ToString(); // вывод первого ответа A
-            OleDbCommand answerB = new OleDbCommand("SELECT AnswerB FROM Questions WHERE QuestionID = 1", myConnection);
+            OleDbCommand answerB = new OleDbCommand("SELECT AnswerB FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton2.Text = answerB.ExecuteScalar().ToString(); // вывод первого ответа B
-            OleDbCommand answerC = new OleDbCommand("SELECT AnswerC FROM Questions WHERE QuestionID = 1", myConnection);
+            OleDbCommand answerC = new OleDbCommand("SELECT AnswerC FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton3.Text = answerC.ExecuteScalar().ToString(); // вывод первого ответа C
-            OleDbCommand answerD = new OleDbCommand("SELECT AnswerD FROM Questions WHERE QuestionID = 1", myConnection);
+            OleDbCommand answerD = new OleDbCommand("SELECT AnswerD FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton4.Text = answerD.ExecuteScalar().ToString(); // вывод первого ответа D
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            Question_counter++;
+            if (Question_counter == 20)
+            {
+                MessageBox.Show("Тест окончен", "Поздравляем!"); // Доделать 
+                button1.Visible = false;
+            }
+
             OleDbCommand cmdCorrect = new
-            OleDbCommand("SELECT CorrectAnswer FROM Questions WHERE QuestionID = " + counter, myConnection);
+            OleDbCommand("SELECT CorrectAnswer FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             string ansver_correct_db = cmdCorrect.ExecuteScalar().ToString();
             if (ansver_correct_db == select.ToString()) { point++; }
             label2.Text = point.ToString();
-           
+            
             counter++;
 
-            OleDbCommand command = new OleDbCommand("SELECT QuestionText FROM Questions WHERE QuestionID = " + counter, myConnection);
+            OleDbCommand command = new OleDbCommand("SELECT QuestionText FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             label1.Text = command.ExecuteScalar().ToString(); // смена вопроса
 
 
-            OleDbCommand answerA = new OleDbCommand("SELECT AnswerA FROM Questions WHERE QuestionID = " + counter, myConnection);
+            OleDbCommand answerA = new OleDbCommand("SELECT AnswerA FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton1.Text = answerA.ExecuteScalar().ToString(); // вывод ответа A
-            OleDbCommand answerB = new OleDbCommand("SELECT AnswerB FROM Questions WHERE QuestionID = " + counter, myConnection);
+            OleDbCommand answerB = new OleDbCommand("SELECT AnswerB FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton2.Text = answerB.ExecuteScalar().ToString(); // вывод ответа B
-            OleDbCommand answerC = new OleDbCommand("SELECT AnswerC FROM Questions WHERE QuestionID = " + counter, myConnection);
+            OleDbCommand answerC = new OleDbCommand("SELECT AnswerC FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton3.Text = answerC.ExecuteScalar().ToString(); // вывод ответа C
-            OleDbCommand answerD = new OleDbCommand("SELECT AnswerD FROM Questions WHERE QuestionID = " + counter, myConnection);
+            OleDbCommand answerD = new OleDbCommand("SELECT AnswerD FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton4.Text = answerD.ExecuteScalar().ToString(); // вывод ответа D
-
+            
             
 
 

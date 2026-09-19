@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace coursework_progect1
 {
+
+    
+
     public partial class Регистриция : Form
     {
         public bool IsAuthorized { get; private set; } = false;
         public static string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=TestDB.mdb;";
         private OleDbConnection myConnection;
-        int i = 0;
         public Регистриция()
         {
             InitializeComponent();
@@ -39,15 +41,15 @@ namespace coursework_progect1
         {
             if (radioButton1.Checked)
             {
-                i = 1;
+                Globali.i = 1;
             }
             else if (radioButton2.Checked)
             {
-                i = 2;
+                Globali.i = 2;
             }
             else if (radioButton3.Checked)
             {
-                i = 3;
+                Globali.i = 3;
             }
             else MessageBox.Show("Выберите предмет!", "Ошибка");
 
@@ -58,7 +60,7 @@ namespace coursework_progect1
             }
             else
             {
-                if (i > 0)
+                if (Globali.i > 0)
                 {
                     IsAuthorized = true;
                     this.Close();

@@ -115,9 +115,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(12, 551);
             label2.Name = "label2";
-            label2.Size = new Size(50, 20);
+            label2.Size = new Size(53, 20);
             label2.TabIndex = 7;
-            label2.Text = "label2";
+            label2.Text = "баллы";
             // 
             // Тест
             // 
