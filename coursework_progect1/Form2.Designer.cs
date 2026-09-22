@@ -72,10 +72,10 @@
             radioButton1.Font = new Font("Segoe UI", 13.8F);
             radioButton1.Location = new Point(46, 381);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(168, 35);
+            radioButton1.Size = new Size(145, 35);
             radioButton1.TabIndex = 6;
             radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
+            radioButton1.Text = "Предмет 1";
             radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -84,10 +84,10 @@
             radioButton2.Font = new Font("Segoe UI", 13.8F);
             radioButton2.Location = new Point(46, 446);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(168, 35);
+            radioButton2.Size = new Size(145, 35);
             radioButton2.TabIndex = 7;
             radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
+            radioButton2.Text = "Предмет 2";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
@@ -96,10 +96,10 @@
             radioButton3.Font = new Font("Segoe UI", 13.8F);
             radioButton3.Location = new Point(46, 508);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(168, 35);
+            radioButton3.Size = new Size(145, 35);
             radioButton3.TabIndex = 8;
             radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
+            radioButton3.Text = "Предмет 3";
             radioButton3.UseVisualStyleBackColor = true;
             // 
             // button1
