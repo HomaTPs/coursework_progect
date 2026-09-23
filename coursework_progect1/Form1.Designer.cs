@@ -42,7 +42,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(1232, 479);
+            button1.Location = new Point(1059, 479);
             button1.Name = "button1";
             button1.Size = new Size(192, 64);
             button1.TabIndex = 1;
@@ -115,7 +115,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 19F);
-            button2.Location = new Point(1232, 398);
+            button2.Location = new Point(1059, 398);
             button2.Name = "button2";
             button2.Size = new Size(192, 64);
             button2.TabIndex = 8;
@@ -152,7 +152,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1490, 580);
+            BackColor = Color.LightGray;
+            ClientSize = new Size(1290, 580);
             Controls.Add(label3);
             Controls.Add(radioButton5);
             Controls.Add(button2);

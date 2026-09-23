@@ -39,17 +39,22 @@ namespace coursework_progect1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int a = 0;
+
             if (radioButton1.Checked)
             {
                 Globali.i = 1;
+                a = 1;
             }
             else if (radioButton2.Checked)
             {
                 Globali.i = 2;
+                a = 2;
             }
             else if (radioButton3.Checked)
             {
                 Globali.i = 3;
+                a = 3;
             }
             else MessageBox.Show("Выберите предмет!", "Ошибка");
 
@@ -60,7 +65,7 @@ namespace coursework_progect1
             }
             else
             {
-                if (Globali.i > 0)
+                if (a > 0)
                 {
                     IsAuthorized = true;
                     this.Close();
