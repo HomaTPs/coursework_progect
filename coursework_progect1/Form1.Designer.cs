@@ -36,7 +36,7 @@
             radioButton4 = new RadioButton();
             button2 = new Button();
             radioButton5 = new RadioButton();
-            label3 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -137,16 +137,16 @@
             radioButton5.UseVisualStyleBackColor = true;
             radioButton5.CheckedChanged += radioButton5_CheckedChanged;
             // 
-            // label3
+            // label2
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 19F);
-            label3.Location = new Point(467, 186);
-            label3.Name = "label3";
-            label3.Size = new Size(159, 45);
-            label3.TabIndex = 10;
-            label3.Text = "Результат";
-            label3.Visible = false;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 19F);
+            label2.Location = new Point(467, 186);
+            label2.Name = "label2";
+            label2.Size = new Size(159, 45);
+            label2.TabIndex = 10;
+            label2.Text = "Результат";
+            label2.Visible = false;
             // 
             // Тест
             // 
@@ -154,7 +154,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(1290, 580);
-            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(radioButton5);
             Controls.Add(button2);
             Controls.Add(radioButton4);
@@ -180,6 +180,6 @@
         private RadioButton radioButton4;
         private Button button2;
         private RadioButton radioButton5;
-        private Label label3;
+        private Label label2;
     }
 }

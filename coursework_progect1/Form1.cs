@@ -1,5 +1,4 @@
 using System.Data.OleDb;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace coursework_progect1
@@ -117,7 +116,7 @@ namespace coursework_progect1
                 radioButton4.Visible = false;
                 radioButton5.Visible = false;
                 button2.Visible = false;
-                label3.Visible = true;
+                label2.Visible = true;
             }
 
             int Estimation = 0;
@@ -128,21 +127,18 @@ namespace coursework_progect1
             if (ansver_correct_db == select.ToString()) { point++; }
 
 
-            if (point <= 10) { Estimation = 2; label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
-            else if (point <= 15) { Estimation = 3;  label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
-            else if (point <= 18) { Estimation = 4; label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
-            else if (point <= 20) { Estimation = 5; label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
+            if (point <= 10) { Estimation = 2; label2.Text = "Ваша оценка - " + Estimation + ". Кол-во набранных баллов - " + point; }
+            else if (point <= 15) { Estimation = 3; label2.Text = "Ваша оценка - " + Estimation + ". Кол-во набранных баллов - " + point; }
+            else if (point <= 18) { Estimation = 4; label2.Text = "Ваша оценка - " + Estimation + ". Кол-во набранных баллов - " + point; }
+            else if (point <= 20) { Estimation = 5; label2.Text = "Ваша оценка - " + Estimation + ". Кол-во набранных баллов - " + point; }
 
             //Запись данных в таблицу
-            OleDbCommand insertSql = new OleDbCommand("INSERT INTO Results (UserName, SubjectID, Score, Estimation) VALUES ('" + Global_UserName.UserName + "', " + Globali.i + ", " + point + ", "+ Estimation + ")", myConnection);
+            OleDbCommand insertSql = new OleDbCommand("INSERT INTO Results (UserName, SubjectID, Score, Estimation) VALUES ('" + Global_UserName.UserName + "', " + Globali.i + ", " + point + ", " + Estimation + ")", myConnection);
             insertSql.ExecuteNonQuery();
 
             MessageBox.Show("Тест окончен", "Поздравляем!");
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.OleDb;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Data.OleDb;
 
 namespace coursework_progect1
 {
 
-    
+
 
     public partial class Регистриция : Form
     {
@@ -58,7 +50,7 @@ namespace coursework_progect1
             }
             else MessageBox.Show("Выберите предмет!", "Ошибка");
 
-            
+
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Заполните Имя и Фамилию", "Ошибка");
