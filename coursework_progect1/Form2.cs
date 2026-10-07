@@ -65,6 +65,7 @@ namespace coursework_progect1
             }
             else
             {
+                Global_UserName.UserName = textBox1.Text;
                 if (a > 0)
                 {
                     IsAuthorized = true;

@@ -1,4 +1,5 @@
 using System.Data.OleDb;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace coursework_progect1
@@ -34,6 +35,7 @@ namespace coursework_progect1
             radioButton3.Text = answerC.ExecuteScalar().ToString(); // вывод первого ответа C
             OleDbCommand answerD = new OleDbCommand("SELECT AnswerD FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             radioButton4.Text = answerD.ExecuteScalar().ToString(); // вывод первого ответа D
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -118,17 +120,22 @@ namespace coursework_progect1
                 label3.Visible = true;
             }
 
+            int Estimation = 0;
+
             OleDbCommand cmdCorrect = new
             OleDbCommand("SELECT CorrectAnswer FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             string ansver_correct_db = cmdCorrect.ExecuteScalar().ToString();
             if (ansver_correct_db == select.ToString()) { point++; }
 
 
-            if (point <= 10) { label3.Text = "Ваша оценка - 2. Кол-во набранных баллов - " + point; }
-            else if (point <= 15) { label3.Text = "Ваша оценка - 3. Кол-во набранных баллов - " + point; }
-            else if (point <= 18) { label3.Text = "Ваша оценка - 4. Кол-во набранных баллов - " + point; }
-            else if (point <= 20) { label3.Text = "Ваша оценка - 5. Кол-во набранных баллов - " + point; }
+            if (point <= 10) { Estimation = 2; label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
+            else if (point <= 15) { Estimation = 3;  label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
+            else if (point <= 18) { Estimation = 4; label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
+            else if (point <= 20) { Estimation = 5; label3.Text = "Ваша оценка - "+ Estimation + ". Кол-во набранных баллов - " + point; }
 
+            //Запись данных в таблицу
+            OleDbCommand insertSql = new OleDbCommand("INSERT INTO Results (UserName, SubjectID, Score, Estimation) VALUES ('" + Global_UserName.UserName + "', " + Globali.i + ", " + point + ", "+ Estimation + ")", myConnection);
+            insertSql.ExecuteNonQuery();
 
             MessageBox.Show("Тест окончен", "Поздравляем!");
         }
