@@ -152,7 +152,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
+            BackColor = Color.LightSteelBlue;
             ClientSize = new Size(1290, 580);
             Controls.Add(label2);
             Controls.Add(radioButton5);
