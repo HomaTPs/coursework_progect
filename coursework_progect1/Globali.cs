@@ -10,4 +10,9 @@ namespace coursework_progect1
     {
         public static int i = 1;
     }
+
+    internal class Global
+    {
+        public static bool isFirstImage = true;
+    }
 }

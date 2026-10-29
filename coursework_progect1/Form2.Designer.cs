@@ -35,6 +35,8 @@
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
             button1 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -104,21 +106,34 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
             button1.Font = new Font("Segoe UI", 20F);
             button1.Location = new Point(48, 582);
             button1.Name = "button1";
             button1.Size = new Size(472, 87);
             button1.TabIndex = 9;
             button1.Text = "Начать тест";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.icons8_sun_50__1_;
+            pictureBox1.Location = new Point(565, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // Регистриция
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSteelBlue;
+            BackColor = Color.White;
             ClientSize = new Size(627, 741);
+            Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(radioButton3);
             Controls.Add(radioButton2);
@@ -128,6 +143,7 @@
             Controls.Add(label1);
             Name = "Регистриция";
             Text = "Регистрация";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,5 +157,6 @@
         private RadioButton radioButton2;
         private RadioButton radioButton3;
         private Button button1;
+        private PictureBox pictureBox1;
     }
 }

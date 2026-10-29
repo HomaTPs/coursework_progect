@@ -3,8 +3,29 @@ using System.Data.OleDb;
 
 namespace coursework_progect1
 {
+    
     public partial class Тест : Form
     {
+        private void ToggleTheme()
+        {
+            if (Global.isFirstImage)
+            {
+                pictureBox1.Image = Properties.Resources.icons8_sun_50;
+                this.BackColor = Color.FromArgb(36, 37, 38);
+                button1.BackColor = Color.FromArgb(188, 152, 234); button2.BackColor = Color.FromArgb(188, 152, 234);
+                label1.ForeColor = Color.White; label2.ForeColor = Color.White;
+                radioButton1.ForeColor = Color.White; radioButton2.ForeColor = Color.White; radioButton3.ForeColor = Color.White; radioButton4.ForeColor = Color.White; radioButton5.ForeColor = Color.White;
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.icons8_sun_50__1_;
+                this.BackColor = Color.FromArgb(255, 255, 255);
+                button1.BackColor = Color.FromArgb(135, 206, 250); button2.BackColor = Color.FromArgb(135, 206, 250);
+                label1.ForeColor = Color.Black; label2.ForeColor = Color.Black;
+                radioButton1.ForeColor = Color.Black; radioButton2.ForeColor = Color.Black; radioButton3.ForeColor = Color.Black; radioButton4.ForeColor = Color.Black; radioButton5.ForeColor = Color.Black;
+            }
+            Global.isFirstImage = !Global.isFirstImage;
+        }
         int counter = 1; // Номер вопросов и ответов по предмету
         int point = 0; // Колличесто набранных очков
         int select = 0; // Выбрвнный ответ на вопрос
@@ -15,6 +36,7 @@ namespace coursework_progect1
         public Тест()
         {
             InitializeComponent();
+            ToggleTheme();
 
             if (Globali.i == 1) { counter = 1; }
             else if (Globali.i == 2) { counter = 21; } //СВЕРИТЬ С БАЗОЙ ПОСЛЕ ИЗМЕНЕНИЙ!!!
@@ -26,17 +48,17 @@ namespace coursework_progect1
 
             // Вывод первоначальных данных на экран
             OleDbCommand command = new OleDbCommand("SELECT QuestionText FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
-            label1.Text = command.ExecuteScalar().ToString();  
+            label1.Text = command.ExecuteScalar().ToString();
 
             OleDbCommand answerA = new OleDbCommand("SELECT AnswerA FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
-            radioButton1.Text = answerA.ExecuteScalar().ToString(); 
+            radioButton1.Text = answerA.ExecuteScalar().ToString();
             OleDbCommand answerB = new OleDbCommand("SELECT AnswerB FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
-            radioButton2.Text = answerB.ExecuteScalar().ToString(); 
+            radioButton2.Text = answerB.ExecuteScalar().ToString();
             OleDbCommand answerC = new OleDbCommand("SELECT AnswerC FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
-            radioButton3.Text = answerC.ExecuteScalar().ToString(); 
+            radioButton3.Text = answerC.ExecuteScalar().ToString();
             OleDbCommand answerD = new OleDbCommand("SELECT AnswerD FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
-            radioButton4.Text = answerD.ExecuteScalar().ToString(); 
-
+            radioButton4.Text = answerD.ExecuteScalar().ToString();
+            ToggleTheme();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,7 +75,7 @@ namespace coursework_progect1
             OleDbCommand("SELECT CorrectAnswer FROM Questions WHERE QuestionID = " + counter + "AND SubjectID = " + Globali.i, myConnection);
             string ansver_correct_db = cmdCorrect.ExecuteScalar().ToString();
             if (ansver_correct_db == select.ToString()) { point++; }
-
+            select = 0;
 
 
             counter++;
@@ -141,6 +163,10 @@ namespace coursework_progect1
             MessageBox.Show("Тест окончен", "Поздравляем!");
         }
 
-        
+        // Смена темы оформления
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ToggleTheme();
+        }
     }
 }

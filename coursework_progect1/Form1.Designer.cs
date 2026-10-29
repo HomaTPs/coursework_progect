@@ -37,17 +37,20 @@
             button2 = new Button();
             radioButton5 = new RadioButton();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
             button1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 204);
             button1.Location = new Point(1059, 479);
             button1.Name = "button1";
             button1.Size = new Size(192, 64);
             button1.TabIndex = 1;
             button1.Text = "Ответить";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label1
@@ -114,13 +117,14 @@
             // 
             // button2
             // 
+            button2.BackColor = Color.LightSkyBlue;
             button2.Font = new Font("Segoe UI", 19F);
             button2.Location = new Point(1059, 398);
             button2.Name = "button2";
             button2.Size = new Size(192, 64);
             button2.TabIndex = 8;
             button2.Text = "Завершить";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Visible = false;
             button2.Click += button2_Click;
             // 
@@ -148,12 +152,24 @@
             label2.Text = "Результат";
             label2.Visible = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.icons8_sun_50__1_;
+            pictureBox1.Location = new Point(1228, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Тест
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSteelBlue;
+            BackColor = Color.White;
             ClientSize = new Size(1290, 580);
+            Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(radioButton5);
             Controls.Add(button2);
@@ -167,6 +183,7 @@
             Name = "Тест";
             RightToLeft = RightToLeft.No;
             Text = "Тест";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,5 +198,6 @@
         private Button button2;
         private RadioButton radioButton5;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }
